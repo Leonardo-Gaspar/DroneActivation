@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Leonardo Gaspar Saheb",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 28.8, "left": -23.96, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -145.3, "left": -144.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -145.3, "left": -9.8, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": -145.3, "left": 124.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 34.8,
+      "left": -274.6,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 21.6,
+      "left": -228.6,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:SIG", "esp:34", "blue", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot2:SIG", "esp:35", "green", [ "v19.2", "h-115.6", "v163.2" ] ],
+    [ "pot3:SIG", "esp:32", "gold", [ "v28.8", "h-240.4", "v163.2" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "v38.4", "h-106.4", "v96", "h-9.6" ] ],
+    [ "pot3:VCC", "esp:3V3", "red", [ "v48", "h-231.2", "v86.4", "h9.6", "v19.2" ] ],
+    [ "pot2:GND", "esp:GND.1", "black", [ "v57.6", "h-67.2", "v201.6" ] ],
+    [ "pot3:GND", "esp:GND.1", "black", [ "v67.2", "h-192", "v192" ] ],
+    [ "esp:25", "led1:A", "purple", [ "v0", "h-191.85" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:26", "orange", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
